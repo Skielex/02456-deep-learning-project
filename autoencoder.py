@@ -267,7 +267,6 @@ class SemiSupervisedClassifier(ExtendedModel):
         with K.name_scope('Classifier'):
             l_y = self.instantiate_layers(l_in_x, classifier_layers)
             self.classifier = Model(l_in_x, l_y, name='Classifier')
-            self.classifier.summary()
 
         # Define the latent parameters as two hidden layers.
         # Mean of q(z|x).
@@ -305,7 +304,6 @@ class SemiSupervisedClassifier(ExtendedModel):
         with K.name_scope('Encoder'):
             z_label = self.instantiate_layers(l_in_x, encoder_layers)
             self.encoder = Model([l_in_x, l_in_y], z_label, name='Encoder')
-            self.encoder.summary()
 
         encoder_output_shape = self.encoder.layers[-1].output_shape[1:]
         l_in_z = Input(shape=encoder_output_shape, name='l_in_z') 
@@ -321,7 +319,6 @@ class SemiSupervisedClassifier(ExtendedModel):
         with K.name_scope('Decoder'):
             l_mux = self.instantiate_layers(concatenate([l_in_z, l_in_y_reshaped]), decoder_layers)
             self.decoder = Model([l_in_z, l_in_y], l_mux, name='Decoder')
-            self.decoder.summary()
 
         # New input variables to use for combined.
         sym_x_l = Input(shape=input_shape, name='x_l')
