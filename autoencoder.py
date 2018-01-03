@@ -42,7 +42,7 @@ class ExtendedModel(Model):
             self.checkpoint_callback = ModelCheckpoint(os.path.join(checkpoint_dir, timestamp + '.weights.{epoch:05d}-{val_loss:.2f}.hdf5'),
                 monitor='val_loss',
                 verbose=0,
-                save_best_only=True,
+                save_best_only=False,
                 save_weights_only=False,
                 mode='auto',
                 period=checkpoint)
@@ -252,6 +252,9 @@ class VariationalAutoencoder(ExtendedModel):
 
 class SemiSupervisedClassifier(ExtendedModel):
     """A semi-supervised classifier using a variational autoencoder.
+
+        Based on tutorial by Lars Maaløe.
+        https://github.com/DeepLearningDTU/variational-autoencoders-summerschool-2016/blob/master/lab4/lab4_VAESSL.ipynb
     """
 
     def __init__(self, input_shape, encoder_layers, decoder_layers, classifier_layers, num_classes, factor_labels, model_name='SSClassifier', optimizer='adam', log_dir='tf_logs', checkpoint_dir='models', compile_model=True, z_dim=2):
@@ -420,7 +423,7 @@ class SemiSupervisedClassifier(ExtendedModel):
             tensorboard=True,
             log_dir=log_dir,
             name=model_name,
-            checkpoint=5            
+            checkpoint=10            
         )
 
         # def mean(f):
