@@ -21,3 +21,4 @@ Existing models can be loaded by setting `LOAD_LAST_WEIGHTS = True`. If you don'
 ## Pre-trained models
 To avoid having to train all the different models in the notebook the following is provided. Simply extract the `output` folder in the repository root and load the models as described above.
 - [Un- and semi-supservised models and training data - 20 epochs](https://dtudk-my.sharepoint.com/personal/niejep_win_dtu_dk/_layouts/15/guestaccess.aspx?docid=08ad1ee819e3147cc82a75538d0a2b814&authkey=Aaq-NtLBwlea5Hcr31_PP74&e=0a57997c44c348b496b538deff85fc7c)
+- [Un- and semi-supservised models and training data - 50 epochs](https://dtudk-my.sharepoint.com/personal/niejep_win_dtu_dk/_layouts/15/guestaccess.aspx?docid=0c669047acb1d4776ad2aa469b10628d2&authkey=AUSyqb8uL9d1slvUZKVJ2CQ&e=dd428cda08d94d668ba175d4f55751d5)
